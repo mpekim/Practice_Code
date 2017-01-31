@@ -1,0 +1,52 @@
+#include <iostream>
+
+using namespace std;
+
+/*********************************************
+Author: Mike Morley
+Date: January 31st, 2017
+
+Time Spent: About 10 minutes.
+
+Credited Sources of Help:
+- "Absolute C++, Sixth Edition" by Walter Savitch (Class Textbook)
+
+Program Purpose: This is "Basic Pointer Manipulations" or practice code 10.2
+from the textbook.
+**********************************************/
+
+int main()
+{
+  int *p1;
+  int* p2;
+  // Declaring integer pointers.
+  
+  p1 = new int;
+  // "new" is the keyword used to allocate dynamic memory in C++
+  *p1 = 42;
+  
+  p2 = p1;
+  // "p2" will point at the same value as "p1".
+  
+  cout << "*p1 == " << *p1 << endl;
+  cout << "*p2 == " << *p2 << endl;
+  
+  *p2 = 53;
+  // Since "p2" is pointing at the same address as "p1", this means that both values should be changed.
+  
+  cout << "*p1 == " << *p1 << endl;
+  cout << "*p2 == " << *p2 << endl;
+  
+  p1 = new int;
+  // Allocating new memory for "p1", making it unique from "p2".
+  
+  *p1 = 88;
+  
+  cout << "*p1 == " << *p1 << endl;
+  cout << "*p2 == " << *p2 << endl;
+  // Now presenting separate values.
+  
+  cout << "Hope you got the point of this example!\n";
+  
+  return 0;
+}
