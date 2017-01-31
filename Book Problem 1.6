@@ -1,0 +1,56 @@
+#include <iostream>
+#include <cstdlib>
+#include <string>
+
+using namespace std;
+
+/*********************************************
+Author: Mike Morley
+Date: January 31st, 2017
+
+Time Spent: About 10 minutes.
+
+Credited Sources of Help:
+- "Absolute C++, Sixth Edition" by Walter Savitch
+
+Program Purpose: This is "Using cin and cout with a string (Part 1 of 2)", 
+or practice code 1.6 from the book.
+**********************************************/
+
+int main()
+{
+  string dog_name;
+  // Initializing a string object for the dog's name.
+  
+  int actual_age;
+  int_human_age;
+  // Declaring variables for the conversion of actual years to human years.
+  
+  cout << "How many years old is your dog? " << endl;
+  cin  >> actual_age;
+  
+  // Setting up a "while" loop to trap users if they insert invalid input.
+  while(cin.fail() || actual_age < 0)
+  {
+    cout << "I'm sorry, that input is either invalid or negative. Please try again.\n";
+    
+    // C++ version of clear_keyboard_buffer(). Try writing this as a function.
+    cin.clear();
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    
+    cout << "How many years old is your dog? " << endl;
+    cin >> actual_age;
+  }
+  
+  // If a valid input is given, they will leave the loop. Multiply by 7.
+  human_age = actual_age * 7;
+  
+  // Enter the dog's name. No validation loop is given since technically, there is no incorrect name.
+  cout << "What is your dog's name?" << endl;
+  cin >> dog_name;
+  
+  // Output.
+  cout << dog_name << "'s age is approximately " << "equivalent to a << human_age << " year old human." << endl;
+  
+  return 0;
+}
