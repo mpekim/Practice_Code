@@ -1,0 +1,34 @@
+#include <iostream
+ #include <cstdlib>
+ 
+ using namesapce std;
+ 
+ /********************************************
+ Author: Mike Morley
+ Date: January 31st, 2017
+ 
+ Time Spent: About 10 minutes.
+ 
+ Credited Sources of Help:
+ - "Absolute C++, Sixth Edition" by Walter Savitch (Class Textbook)
+ 
+ Program Purpose: Practice Code Example 1.5: Named Constant from textbook.
+ *********************************************/
+ 
+ int main()
+ {
+   const double RATE = 6.9;
+   double deposit;
+   // Initializing variables, as well as the "const" modifier which will not change RATE.
+   
+   cout << "Enter the amount of your deposit $";
+   cin >> deposit;
+   
+   double new_balance;
+   new_balance = deposit + deposit * (RATE/100);
+  
+   cout << "In one year, that deposit will grow to\n" 
+   << "$" << new_balance << ": an amount worth waiting for.\n";
+   
+   return 0;
+ }
