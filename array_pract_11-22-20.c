@@ -18,6 +18,7 @@ of IDEs.
 *********************************/
 
 int* create_int_arr_default(int size);
+int** create_2d_int_arr_default(int rows, int columns);
 void destroy_int_array(int** phList);
 
 // Function Declarations.
@@ -54,6 +55,34 @@ int* create_int_arr_default(void)
   }
   
   return list;
+}
+
+// Pre-Condition: This function accepts two int arguments, for the rows and columns
+// of the "table" (2d array).
+// Post-Condition: A 2D array will be created. Since this is a default array, all
+// of the values will be set to zero.
+int** create_2d_int_arr_default(int rows, int columns)
+{
+  int** new_table;
+  
+  // Allocate the memory for the number of rows.
+  new_table = (int**)malloc(sizeof(int*) * rows);
+  
+  // Check to see that the memory has been allocated. If not, end the program.
+  if (new_table == NULL)
+  {
+      printf("Error: unable to allocate memory for the 2D Array. Ending program.\n");
+    exit(1);
+  }
+  
+  // If the memory has been allocated, then call the 1D Array function for the columns.
+  for (int i = 0; i < rows; i++)
+  {
+    new_table[i] = create_int_arr_default();
+  }
+  
+  // Return the pointer to the table.
+  return new_table;
 }
 
 // Pre-Condition: This function accepts a pointer to handle to int
